@@ -1,0 +1,35 @@
+public class BankAccountDemo {
+    public static void main(String[] args) {
+        BankAccount bl = new BankAccount("123456789", "Simon Dalmaso", false);
+        bl.deposit(100);
+        bl.withdraw(10);
+        System.out.println(bl);
+        System.out.println("your balance is " + bl.getBalance());
+        //this is tessting withdrawing with correct numbers and no overdraft
+        bl.setBalance(0);
+        System.out.println("resetting Balance");
+        bl.setHasOverdraft(true);
+        bl.deposit(100);
+        bl.withdraw(1000);
+        System.out.println(bl);
+        System.out.println("Your balance is " + bl.getBalance());
+        //testing overdraft when the user take more money out than he put in.
+        bl.setBalance(0);
+        System.out.println("resetting Balance");
+        bl.setHasOverdraft(false);
+        bl.deposit(100);
+        bl.withdraw(1000);
+        System.out.println(bl);
+        System.out.println("Your balance is " + bl.getBalance());
+        //testing if the user doesn't have overdraft.
+        bl.setBalance(0);
+        System.out.println("resetting Balance");
+        bl.setHasOverdraft(false);
+        bl.deposit(-10);
+        bl.withdraw(-100);
+        System.out.println(bl);
+        System.out.println("Your balance is " + bl.getBalance());
+        //
+
+    }
+}
